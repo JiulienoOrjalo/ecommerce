@@ -10,7 +10,7 @@
 <script src="https://kit.fontawesome.com/dbed6b6114.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="assets3/style.css">
 <link rel="stylesheet" href="assets3/css/style.css">
-<title>Title</title>
+<title>Ecommerce - Home Page</title>
 </head>
 <body>
 
@@ -26,16 +26,16 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home</a>
+          <a class="nav-link" href="#">Shop</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Services</a>
+          <a class="nav-link" href="#">Profile</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Contact</a>
+          <a class="nav-link" href="#">Log out <i class="fas fa-sign-out-alt"></i></a>
         </li>
       </ul>
     </div>
