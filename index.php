@@ -20,12 +20,12 @@ if(!isset($_SESSION['username'])){
 
 	</head>
 	<body>
-	<section class="ftco-section">
-		<div class="container">
+	<section class="ftco-section mt-5">
+		<div class="container ">
 			<div class="row justify-content-center">
 				<div class="col-md-12 col-lg-10">
 					<div class="wrap d-md-flex">
-						<div class="img" style="background-image: url(assets/images/bg-1.jpg);">
+						<div class="img" style="background-image: url(assets/images/bg2.jpg);">
 			      </div>
 						<div class="login-wrap p-4 p-md-5">
 			      	<div class="d-flex">
@@ -57,6 +57,7 @@ if(!isset($_SESSION['username'])){
 			</div>
 		</div>
 	</section>
+	
 
 	<script src="assets/js/jquery.min.js"></script>
   <script src="assets/js/popper.js"></script>
