@@ -1,7 +1,5 @@
-<?php 	
-include('login_server.php'); 
+<?php 
 session_start();
-
 
 ?>
 
