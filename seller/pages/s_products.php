@@ -1,5 +1,8 @@
+<?php
 
-                                 
+include ('s_server.php');
+?> 
+                
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -146,13 +149,11 @@
                                 <table id="employee_data" class="table table-striped table-bordered">  
                                           <thead>  
                                                <tr>  
-                                                    <td style="width: 5px;"><small><strong>#</strong></small></td>
-                                                    <td style="width: 5px;"><small><strong>#</strong></small></td>
-                                                    <td style="width: 60px;"><small><strong>Product Id</strong></small></td>    
+                                                      
                                                     <td><small><strong>Name</strong></small></td>  
                                                     <td style="width: 100px;"> <small><strong>Location</strong></small></td>  
                                                     <td style="width: 30px;"><strong><small>Price</strong></small></td> 
-                                                    <td style="width: 30px;"><strong><small>Discount%</strong></small></td>  
+                                                    <td style="width: 30px;"><strong><small>Image</strong></small></td>  
                                                     <td style="width: 100px;"><small><strong>Discounted Price</strong></small></td> 
                                                     <td style="width: 30px;"><small><strong>Stocks</strong></small></td> 
                                                     <td style="width: 5px;"><small><strong>Action</strong></small></td>  
@@ -163,7 +164,35 @@
                                                </tr>  
                                           </thead>  
 
+                                          
+                                          <?php  
+                                  $view_query=mysqli_query($connection,"SELECT * FROM products ORDER BY id DESC");
+                                  while ($row1=mysqli_fetch_assoc($view_query)) {
+                                        
+                                        echo'  
 
+                                            <tr>
+                                            
+                                            
+                                            <td>'.$row1["product_name"].'</td>  
+                                            <td>'.$row1["product_location"].'</td>  
+                                            <td>'.'&#8369;'.$row1["product_price"].'</td>
+                                            
+                                           
+                                            <form action="sa_edit_products.php" method="post">  
+                                            <td><center> <a onclick="javascript:confirmationEdit($(this));return false;" 
+                                            href=s_edit_products.php?editprod='.$row1["id"].'>
+                                           
+                                             </form> 
+                                            </tr> 
+                                        
+
+                                            '; 
+                                         ?>
+
+
+
+    
 
                                          <!-- START MODAL-->
     <div class="modal fade" role="dialog" id="<?php echo $row1['id']; ?>">
@@ -199,7 +228,7 @@
               <h3>Category</h3><h4><?php echo $row1['category']?></h4><hr>
                 <p></p>
              <div class="d-inline-flex p-3"><strong>Product name:</strong>
-              <span>  &nbsp;  &nbsp;<?php echo $row1['name']; ?> </span>
+              <span>  &nbsp;  &nbsp;<?php echo $row1['prodcut']; ?> </span>
             </div>
 
             <div class="d-inline-flex p-3"><strong>Description:</strong>
@@ -221,6 +250,8 @@
             <div class="d-inline-flex p-3"><strong>Stocks:</strong>
               <span>  &nbsp;  &nbsp;<?php echo $row1['stocks'];?> </span>
             </div>
+
+           
             <hr>
     </div>
 </div>
@@ -238,7 +269,7 @@
 
 
 
-                          
+    <?php  }    ?>
                                     
                                      </table> 
                                     <div class="form-group">
@@ -254,6 +285,8 @@
             </div>
         </div>
         <!-- /#wrapper -->
+
+        
 
 <!-- MODAL PART -->
 
