@@ -18,6 +18,7 @@ if(!isset($_SESSION['username'])){
 <script src="https://kit.fontawesome.com/dbed6b6114.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="assets3/style.css">
 <link rel="stylesheet" href="assets3/css/style.css">
+<link rel="shortcut icon" href="img/logo.png">
 <title>Ecommerce - Home Page</title>
 </head>
 <body>
@@ -118,7 +119,7 @@ businesses and help their communities thrive.</a>!</p>
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-success mt-auto" href="#">View Product</a></div>
+                                <div class="text-center"><a class="btn btn-success mt-auto" href="product_page.php">View Product</a></div>
                             </div>
                         </div>
                     </div>
