@@ -1,4 +1,8 @@
+<?php
 
+include ("s_server.php");
+
+?>
                                  
 <!DOCTYPE html>
 <html lang="en">
@@ -142,17 +146,17 @@
                     </div>
                     <!-- /.row -->
                 
-    <form method="post" class="form-horizontal span6" name="plant_form" enctype="multipart/form-data" action="s_server.php">
+    <form method="post" class="form-horizontal span6" name="product_form" enctype="multipart/form-data" action="s_server.php">
         <div class="row">
           <!-- /.col-lg-12 -->
        </div>   
-          <input type="hidden" name="product_number" value="<?php echo("Prod ".rand(10000,100000)); ?>">
+         <input type="hidden" name="id">
 
               <div class="form-group">
                     <div class="col-md-8">
-                      <label class="col-md-4 control-label" for="name_of_plants">Name of Product:</label>
+                      <label class="col-md-4 control-label" for="name_of_product">Name of Product:</label>
                       <div class="col-md-8">
-                        <input class="form-control input-sm" id="name_of_plants" name="name_of_plants" placeholder="Name of Plants" type="text" value="" required="">
+                        <input class="form-control input-sm" id="name_of_product" name="name_of_product" placeholder="Name of Product" type="text" value="" required="">
                       </div>
                     </div>
                   </div>  
@@ -168,26 +172,15 @@
                     </div>
                   </div>  
 
-                   <div class="form-group">
+                  <div class="form-group">
                     <div class="col-md-8">
-                      <label class="col-md-4 control-label" for="name_of_plants">Location:</label>
+                      <label class="col-md-4 control-label" for="name_of_product">Location:</label>
                       <div class="col-md-8">
-                        <input class="form-control input-sm" id="name_of_plants" name="location" placeholder="Location" type="text" value="" required="">
+                        <input class="form-control input-sm" id="name_of_product" name="location" placeholder="Location" type="text" value="" required="">
                       </div>
                     </div>
                   </div>
 
-
-                   <div class="form-group">
-                    <div class="col-md-8">
-                      <label class="col-md-4 control-label" for="name_of_plants">Categories:</label>
-                      <div class="col-md-8">
-                        <select class="form-control" name="category">
-                          <option readonly>-- Select Category --</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
 
 
 <!--           
@@ -208,24 +201,13 @@
                   </div> -->
                    
 
-                   <div class="form-group">
-                    <div class="col-md-8">
-                      <label class="col-md-4 control-label" for="name_of_plants">Available Stocks:</label>
-                      <div class="col-md-8">
-                        <input class="form-control input-sm" id="name_of_plants" name="stocks" placeholder="Stocks" type="number" value="" required="">
-                      </div>
-                    </div>
-                  </div>
+                   
 
                    <div class="form-group">
                     <div class="col-md-8">
-                      <label class="col-md-4 control-label" for="family">Sale (Discount):</label>
+                      
 
-                      <div class="col-md-3">
-                         <input class="form-control input-sm" id="family" name="sale" placeholder="Discount" type="number" min="0" value=""  step="any" >
-                      </div>
-
-                       <label class="col-md-2 control-label" for="origin">Price</label>
+                       <label class="col-md-4 control-label" for="origin">Price</label>
 
                       <div class="col-md-3">
                          <input class="form-control input-sm" id="origin"  step="any" name="price" placeholder="Price" type="number" value="" required="">
@@ -245,8 +227,7 @@
                     </div>
                   </div>
 
-              <input type="hidden" name="selname" value="">  
-              <input type="hidden" name="seller_id" value="">  
+              
             
                 <div class="form-group">
                     <div class="col-md-8">
@@ -254,7 +235,7 @@
                       "idno"></label>
 
                       <div class="col-md-8">
-                        <button class="btn  btn-primary btn-sm" name="add_plants" type="submit" ><span class="fa fa-save fw-fa">
+                        <button class="btn  btn-primary btn-sm" name="add_product" type="submit" ><span class="fa fa-save fw-fa">
                           
                         </span>  Add</button>
                       </div>
