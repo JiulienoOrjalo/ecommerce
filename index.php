@@ -1,5 +1,10 @@
 <?php 
 session_start();
+if(!isset($_SESSION['username'])){
+  echo "<script>alert('You're currently Logged in!');document.location='homepage.php'</script>";
+}else{
+  header('location:homepage.php');
+}
 
 ?>
 

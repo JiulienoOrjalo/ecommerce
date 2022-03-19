@@ -1,3 +1,13 @@
+<?php 
+session_start();
+if(!isset($_SESSION['username'])){
+  echo "<script>alert('You must login before viewing this page.'); location.href='index.php';</script>";
+}
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
