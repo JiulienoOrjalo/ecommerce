@@ -22,6 +22,7 @@ if(!isset($_SESSION['username'])){
 <script src="https://kit.fontawesome.com/dbed6b6114.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="assets3/style.css">
 <link rel="stylesheet" href="assets3/css/style.css">
+<link rel="shortcut icon" href="img/logo.png">
 <title>Ecommerce - Home Page</title>
 </head>
 <body>
