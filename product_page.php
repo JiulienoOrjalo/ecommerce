@@ -83,7 +83,7 @@ while ($row=mysqli_fetch_array($rec)) {
                         <div class="fs-5 mb-5">
                             <span>$<?php echo $row['product_price']?></span>
                         </div>
-                        <p class="lead"><?php echo $row['product_description']?></p>
+                        <p class="lead"><h6><?php echo $row['product_description']?></h6></p>
                         <div class="d-flex">
                             <!-- <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" /> -->
                             <button class="btn btn-outline-dark flex-shrink-0" type="button">
