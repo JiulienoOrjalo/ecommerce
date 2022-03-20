@@ -29,7 +29,7 @@ if (isset($_POST['add_product'])) {
 
     //insert into DB
 $query = "INSERT INTO products (product_name, product_description, product_location, product_price, product_image) 
-        VALUES ('$p_name','$storedFile', ' $p_description','$p_location', '$p_price')";
+        VALUES ('$p_name', ' $p_description','$p_location', '$p_price', '$storedFile')";
             mysqli_query($connection, $query);	
             
 header('location: s_products.php');
