@@ -23,7 +23,7 @@ if (isset($_POST['add_product'])) {
 
     $p_name = $_POST['name_of_product'];
     $p_description = $_POST['description'];
-    $p_location = $_POST['name_of_product'];
+    $p_location = $_POST['location'];
     $p_price = $_POST['price'];
 
 

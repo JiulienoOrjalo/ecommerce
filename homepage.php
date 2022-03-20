@@ -112,73 +112,38 @@ businesses and help their communities thrive.</a>!</p>
                                   $view_query=mysqli_query($connection,"SELECT * FROM products ORDER BY id DESC");
                                   while ($row1=mysqli_fetch_assoc($view_query)) { ?>
 
+
+
                 <!-- Start Card box-->
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Product image--> 
-                            <img class="card-img-top" src="<?php echo $row1['product_images']?>" alt="..." />
+
+                            <img class="card-img-top" src="seller/pages/<?php echo $row1['product_image'];?>" height="280px" width="auto">
+                            
+                          
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Product name-->
                                     <h5 class="fw-bolder text-start"><?php echo $row1['product_name']?></h5>
-                                    <p class="text-start"><small><?php echo $row1['product_description']?></small></p>
-                                    <p class="text-start"><small><?php echo $row1['product_location']?></small></p>
+                                    <p class="text-start"><small><i class="fa fa-map-marker fa-xs" aria-hidden="true"></i> &nbsp;<?php echo $row1['product_location']?></small></p>
+                                   
                                     <!-- Product price-->
-                                    <h4 class="fw-bolder text-start"><?php echo $row1['product_price']?></h4>
+                                    <h4 class="fw-bolder text-center bg-success text-white">$<?php echo $row1['product_price']?></h4>
+                                     
                                 </div>
                             </div>
                             
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-success mt-auto" href="#">View Product</a></div>
+                                <div class="text-center"><a class="btn btn-success mt-auto" href="product_page.php?buy=<?php echo $row1['id']; ?>">View Product</a></div>
                             </div>
                         </div>
                     </div>
                     <?php }?>
 
-                 <!-- Ends Card box-->
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder text-start">Gaming Laptop</h5>
-                                    <p class="text-start"><small>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</small></p>
-                                    <!-- Product price-->
-                                    <h4 class="fw-bolder text-start">$5.00</h4>
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-success mt-auto" href="#">View Product</a></div>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder text-start">Gaming Laptop</h5>
-                                    <p class="text-start"><small>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</small></p>
-                                    <!-- Product price-->
-                                    <h4 class="fw-bolder text-start">$5.00</h4>
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-success mt-auto" href="#">View Product</a></div>
-                            </div>
-                        </div>
-                    </div>
 
                 </div>
             </div>
