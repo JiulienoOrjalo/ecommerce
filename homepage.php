@@ -42,7 +42,7 @@ if(!isset($_SESSION['username'])){
           <a class="nav-link" href="#">Shop</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
+          <a class="nav-link" href="#">Bag <i class="fa fa-shopping-bag" aria-hidden="true" ></i></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Profile</a>
