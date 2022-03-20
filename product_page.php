@@ -12,6 +12,58 @@ if (isset($_GET['buy'])) {
 
  }
 
+ $listcurrency = mysqli_query($connection, "SELECT * FROM currency");
+
+
+//ADDING PRODUCTS
+if (isset($_POST['buy_now'])) {
+	
+
+  $bp_price = $_POST['bp_price'];
+
+  $peso = ($bp_price * 52.56);
+  $yen = ($bp_price * 119.21);
+  $btc = ($bp_price * 0.000024);
+
+  $pick_currency = $_POST['currency'];
+
+  if ($pick_currency == 'peso') {
+    $db_currency= '₱'. $peso;
+  }
+  elseif ($pick_currency == 'yen'){
+    $db_currency= '¥'.$yen;
+  }
+  elseif ($pick_currency == 'btc'){
+    $db_currency= '₿'.$btc;
+  }
+  
+
+
+  // $product_number = $_POST['product_number'];
+
+  // if ($product_number == $product_number) {
+  //     $prodid = $product_number;
+  // }
+
+  $storedFile="images/".basename($_FILES['file']["name"]);
+  move_uploaded_file($_FILES["file"]["tmp_name"],$storedFile);
+
+
+  $bp_name = $_POST['bp_name'];
+  $bp_description = $_POST['bp_description'];
+  $bp_location = $_POST['bp_location'];
+  $bp_price = $db_currency;
+
+
+  //insert into DB
+$query = "INSERT INTO bag (bp_name, bp_description, bp_location, bp_image, bp_total) 
+      VALUES ('$bp_name', '$bp_description','$bp_location', '$storedFile', '$bp_price')";
+          mysqli_query($connection, $query);	
+          
+header('location: bag.php');
+
+}
+
 
 
 
@@ -82,37 +134,77 @@ while ($row=mysqli_fetch_array($rec)) {
   
 ?>
 
+
+
+
         <!-- Product section-->
         <section class="py-5 mt-5">
+        <form method="post" action="#" enctype="multipart/form-data">
+
             <div class="container px-4 px-lg-5 my-5">
                 <div class="row gx-4 gx-lg-5 align-items-center">
+
+                <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+                  
+            
                     <div class="col-md-6">
+                      <input type="hidden" name="file" value="<?php echo $row['product_image']; ?>">
                       <img class="card-img-top mb-5 mb-md-0" src="seller/pages/<?php echo $row['product_image']; ?>" style="width: 70%; height: auto;">
                     </div>
 
                     <div class="col-md-6">
+                       <input type="hidden" name="bp_name" value="<?php echo $row['product_name']; ?>">
                         <h1 class="display-5 fw-bolder"><?php echo $row['product_name']?></h1>
+
+                        <input type="hidden" name="bp_location" value="<?php echo $row['product_location']; ?>">
                         <p class="text-start"><small><i class="fa fa-map-marker fa-xs" aria-hidden="true"></i> &nbsp;<?php echo $row['product_location']?></small></p>
-                        <div class="fs-5 mb-5">
-                            <span>$<?php echo $row['product_price']?></span>
+
+                        <div class="fs-5 mb-0">
+                        <input type="hidden" name="bp_price" value="<?php echo $row['product_price']; ?>">
+                            <b><span>$<?php echo $row['product_price']?></span></b>
                         </div>
+
+                        <hr>
+
+                   <div class="form-group">
+                    <div class="col-md-6">
+                      <div class="col-md-12">
+   
+                      <select class="form-control" name="currency">
+                          <option readonly>-- Select currency --</option>
+                       <?php  
+                                  while($row2 = mysqli_fetch_array($listcurrency))  
+                                  { 
+                                    $pick_currency = $row2['currency'];
+                                    echo "<option value='$pick_currency'>$pick_currency</option>";
+
+                                      }  
+                                  ?>  
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+                  <input type="hidden" name="bp_description" value="<?php echo $row['product_description']; ?>">
                         <p class="lead"><h6><?php echo $row['product_description']?></h6></p>
-                        <div class="d-flex">
+                        
+                        <div class="d-flex mt-3" style="float: right;">
                             <!-- <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" /> -->
-                            <button class="btn btn-outline-dark flex-shrink-0" type="button" data-toggle="modal" data-target="#currency">
-                                <i class="bi-cart-fill me-1"></i>
-                                Buy Product
-                            </button>
+                            <input type="submit" name="buy_now"  class="form-control btn btn-primary" value="Buy now" style="outline: none; border-radius: 3">
+                            
                         </div>
                     </div>
                 </div>
             </div>
+
+        </form> 
         </section>
 
 
 
 
-<!-- Modal -->
+<!-- Modal 
+ data-toggle="modal" data-target="#currency"
 <div class="modal fade" id="currency" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -124,7 +216,7 @@ while ($row=mysqli_fetch_array($rec)) {
       </div>
       <div class="modal-body">
        
-              <div class="form-group">
+                  <div class="form-group">
                     <div class="col-md-12">
                       <div class="col-md-12">
                         <select class="form-control" name="currency">
@@ -146,7 +238,7 @@ while ($row=mysqli_fetch_array($rec)) {
     </div>
   </div>
 </div>
-
+-->
         
 <?php 
 }
