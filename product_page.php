@@ -127,11 +127,11 @@ while ($row=mysqli_fetch_array($rec)) {
               <div class="form-group">
                     <div class="col-md-12">
                       <div class="col-md-12">
-                        <select class="form-control" name="category">
+                        <select class="form-control" name="currency">
                           <option readonly>-- Select Currency --</option>
-                          <option value="Seller">PHP - (Philippine Peso)</option>
-                          <option value="Seller">JPY - (Japanese Yen)</option>
-                          <option value="Buyer">BTC - (Bitcoin)</option>
+                          <option value="php">PHP - (Philippine Peso)</option>
+                          <option value="yen">JPY - (Japanese Yen)</option>
+                          <option value="btc">BTC - (Bitcoin)</option>
                         </select>
                       </div>
                     </div>
