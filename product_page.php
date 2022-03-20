@@ -32,6 +32,19 @@ if (isset($_GET['buy'])) {
 <link rel="shortcut icon" href="img/logo.png">
 <title>Ecommerce - Home Page</title>
 </head>
+<<style>
+.modal-dialog,
+.modal-content {
+    /* 80% of window height */
+    height: 62%;
+}
+
+.modal-body {
+    /* 100% = dialog height, 120px = header + footer */
+    max-height: calc(100% - 120px);
+    overflow-y: scroll;
+}
+</style>
 <body>
 
 <!-- Navigation -->
@@ -86,7 +99,7 @@ while ($row=mysqli_fetch_array($rec)) {
                         <p class="lead"><h6><?php echo $row['product_description']?></h6></p>
                         <div class="d-flex">
                             <!-- <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" /> -->
-                            <button class="btn btn-outline-dark flex-shrink-0" type="button">
+                            <button class="btn btn-outline-dark flex-shrink-0" type="button" data-toggle="modal" data-target="#currency">
                                 <i class="bi-cart-fill me-1"></i>
                                 Buy Product
                             </button>
@@ -96,6 +109,45 @@ while ($row=mysqli_fetch_array($rec)) {
             </div>
         </section>
 
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="currency" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Choose Currency</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       
+              <div class="form-group">
+                    <div class="col-md-12">
+                      <div class="col-md-12">
+                        <select class="form-control" name="category">
+                          <option readonly>-- Select Currency --</option>
+                          <option value="Seller">PHP - (Philippine Peso)</option>
+                          <option value="Seller">JPY - (Japanese Yen)</option>
+                          <option value="Buyer">BTC - (Bitcoin)</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Buy Now</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+        
 <?php 
 }
 ?>
@@ -185,5 +237,8 @@ while ($row=mysqli_fetch_array($rec)) {
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 </body>
 </html>
