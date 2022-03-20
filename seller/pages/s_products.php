@@ -101,12 +101,12 @@ include ('s_server.php');
                                     <i class="fa fa-leaf" aria-hidden="true"></i> Products</a>
                             </li>
 
-                            <li>
+                            <!-- <li>
                                 <a href="s_order.php" style="color: #64ca87;"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp; Orders   <small>
                                     <span class="badge badge-primary" style="background-color: #64ca87;">5
                     
                                 </span></small> </a>
-                            </li>
+                            </li> -->
 
                            
              </ul>
@@ -151,6 +151,7 @@ include ('s_server.php');
                                                <tr>  
                                                       
                                                     <td><small><strong>Name</strong></small></td>  
+                                                    <td style="width: 100px;"> <small><strong>Description</strong></small></td> 
                                                     <td style="width: 100px;"> <small><strong>Location</strong></small></td>  
                                                     <td style="width: 30px;"><strong><small>Price</strong></small></td> 
                                                     <td style="width: 30px;"><strong><small>Image</strong></small></td>  
@@ -173,6 +174,7 @@ include ('s_server.php');
                                             
                                             
                                             <td>'.$row1["product_name"].'</td>  
+                                            <td>'.$row1["product_description"].'</td> 
                                             <td>'.$row1["product_location"].'</td>  
                                             <td>'.'&#8369;'.$row1["product_price"].'</td>
                                             <td><img src = "'.$row1['product_image'].'"></td>
@@ -211,7 +213,7 @@ include ('s_server.php');
             <div class="row">
                 <div class="col-m-12">
                     <div class="col-md-8 responsive">
-                          <img width="250" class="img-portfolio" height="300" alt="" src="<?php echo $row1['photo']?>">
+                          <img width="250" class="img-portfolio" height="300" alt="" src="<?php echo $row1['product_image']?>">
                     </div>
                 </div>
                 
@@ -226,7 +228,7 @@ include ('s_server.php');
               <h3>Category</h3><h4><?php echo $row1['category']?></h4><hr>
                 <p></p>
              <div class="d-inline-flex p-3"><strong>Product name:</strong>
-              <span>  &nbsp;  &nbsp;<?php echo $row1['prodcut']; ?> </span>
+              <span>  &nbsp;  &nbsp;<?php echo $row1['product_name']; ?> </span>
             </div>
 
             <div class="d-inline-flex p-3"><strong>Description:</strong>
