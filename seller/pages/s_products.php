@@ -154,8 +154,6 @@ include ('s_server.php');
                                                     <td style="width: 100px;"> <small><strong>Location</strong></small></td>  
                                                     <td style="width: 30px;"><strong><small>Price</strong></small></td> 
                                                     <td style="width: 30px;"><strong><small>Image</strong></small></td>  
-                                                    <td style="width: 100px;"><small><strong>Discounted Price</strong></small></td> 
-                                                    <td style="width: 30px;"><small><strong>Stocks</strong></small></td> 
                                                     <td style="width: 5px;"><small><strong>Action</strong></small></td>  
                                                     
                                                       
@@ -177,7 +175,7 @@ include ('s_server.php');
                                             <td>'.$row1["product_name"].'</td>  
                                             <td>'.$row1["product_location"].'</td>  
                                             <td>'.'&#8369;'.$row1["product_price"].'</td>
-                                            
+                                            <td><img src = "'.$row1['product_image'].'"></td>
                                            
                                             <form action="sa_edit_products.php" method="post">  
                                             <td><center> <a onclick="javascript:confirmationEdit($(this));return false;" 
@@ -243,13 +241,7 @@ include ('s_server.php');
               <span>  &nbsp;  &nbsp;<?php echo $row1['sale']; ?>%</span>
             </div>
 
-             <div class="d-inline-flex p-3"><strong>Discounted Price:</strong>
-              <span>  &nbsp;  &nbsp; &#8369; <?php echo $row1['new_price'];?> </span>
-            </div>
-
-            <div class="d-inline-flex p-3"><strong>Stocks:</strong>
-              <span>  &nbsp;  &nbsp;<?php echo $row1['stocks'];?> </span>
-            </div>
+        
 
            
             <hr>
