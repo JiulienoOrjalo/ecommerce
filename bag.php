@@ -25,6 +25,59 @@ if(!isset($_SESSION['username'])){
 <link rel="shortcut icon" href="img/logo.png">
 <title>Ecommerce - Home Page</title>
 </head>
+<<style>
+.modal-dialog,
+.modal-content {
+    /* 80% of window height */
+    height: 62%;
+}
+
+.modal-body {
+    /* 100% = dialog height, 120px = header + footer */
+    max-height: calc(100% - 120px);
+    overflow-y: scroll;
+}
+
+.project-tab {
+    padding: 10%;
+    margin-top: -8%;
+}
+.project-tab #tabs{
+    background: #007b5e;
+    color: #eee;
+}
+.project-tab #tabs h6.section-title{
+    color: #eee;
+}
+.project-tab #tabs .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: #0062cc;
+    background-color: transparent;
+    border-color: transparent transparent #f3f3f3;
+    border-bottom: 3px solid !important;
+    font-size: 16px;
+    font-weight: bold;
+}
+.project-tab .nav-link {
+    border: 1px solid transparent;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+    color: #0062cc;
+    font-size: 16px;
+    font-weight: 600;
+}
+.project-tab .nav-link:hover {
+    border: none;
+}
+.project-tab thead{
+    background: #f3f3f3;
+    color: #333;
+}
+.project-tab a{
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+}
+</style>
 <body>
 
 <!-- Navigation -->
@@ -39,10 +92,10 @@ if(!isset($_SESSION['username'])){
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Shop</a>
+          <a class="nav-link" href="homepage.php">Shop</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="bag.php">Bag <i class="fa fa-shopping-bag" aria-hidden="true" ></i></a>
+        <a class="nav-link" href="#">Bag <i class="fa fa-shopping-bag" aria-hidden="true" ></i></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Profile</a>
@@ -55,101 +108,61 @@ if(!isset($_SESSION['username'])){
   </div>
 </nav>
 
-<header>
 
-  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active" style="background-image: url('https://source.unsplash.com/RCAhiGJsUUE/1920x1080')">
-        <div class="carousel-caption">
-          <h5>First slide label</h5>
-          <p>Some representative placeholder content for the first slide.</p>
-        </div>
-      </div>
-      <div class="carousel-item" style="background-image: url('https://source.unsplash.com/wfh8dDlNFOk/1920x1080')">
-        <div class="carousel-caption">
-          <h5>Second slide label</h5>
-          <p>Some representative placeholder content for the second slide.</p>
-        </div>
-      </div>
-      <div class="carousel-item" style="background-image: url('https://source.unsplash.com/lHGeqh3XhRY/1920x1080')">
-        <div class="carousel-caption">
-          <h5>Third slide label</h5>
-          <p>Some representative placeholder content for the third slide.</p>
-        </div>
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
-</header>
 
-<!-- Page Content -->
-<section class="py-5">
-  <div class="container">
-    <h1 class="fw-light">Welcome to Shop</h1>
-    <p class="lead">
-Shoppers, business owners, and civic leaders come together to support small
-businesses and help their communities thrive.</a>!</p>
-  </div>
-
-            <div class="container px-4 px-lg-5 mt-5">
-                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-start">
-
-                      <?php  
-
-                                  
+<section id="tabs" class="project-tab">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <nav>
+                            <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                                <h1 style="text-align: center; margin-top: 30px;">ORDERS</h1>
                                 
-                                  $view_query=mysqli_query($connection,"SELECT * FROM products ORDER BY id DESC");
-                                  while ($row1=mysqli_fetch_assoc($view_query)) { ?>
+                            </div>
+                        </nav>
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                                <table class="table" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Product Name</th>
+                                            <th>Description</th>
+                                            <th>Location</th>
+                                            <th>Price</th>
+                                        </tr>
+                                    </thead>
 
+                                    <?php
+                                    $newquery=mysqli_query($connection,"SELECT * FROM bag");
+                                        //$mysqli = "SELECT * FROM bag";
+                                        //$res = mysqli_query($newquery);
+                                        while($row=mysqli_fetch_assoc($newquery))
+                                        {
+                                    ?>
 
+                                    <tbody>
+                                        <tr>
+                                            <td><?php echo $row['bp_name']; ?></td>
+                                            <td><?php echo $row['bp_description']; ?></td>
+                                            <td><?php echo $row['bp_location']; ?></td>
+                                            <td><?php echo $row['bp_total12']; ?></td>
+                                            <td></td>
+                                        </tr>
 
-                <!-- Start Card box-->
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            <!-- Product image--> 
-
-                            <img class="card-img-top" src="seller/pages/<?php echo $row1['product_image'];?>" height="280px" width="auto">
-                            
-                          
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder text-start"><?php echo $row1['product_name']?></h5>
-                                    <p class="text-start"><small><i class="fa fa-map-marker fa-xs" aria-hidden="true"></i> &nbsp;<?php echo $row1['product_location']?></small></p>
-                                   
-                                    <!-- Product price-->
-                                    <h4 class="fw-bolder text-center bg-success text-white">$<?php echo $row1['product_price']?></h4>
-                                     
-                                </div>
+                                        <?php
+                                        }
+                                        ?>
+                                        
+                                    </tbody>
+                                </table>
                             </div>
                             
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-success mt-auto" href="product_page.php?buy=<?php echo $row1['id']; ?>">View Product</a></div>
-                            </div>
                         </div>
                     </div>
-                    <?php }?>
-
-
-
                 </div>
             </div>
-</section>
-
+        </section>
+</form>
 
 <!-- Footer -->
 <footer class="footer-95942" style="background-color:#f8f8f8;">
@@ -237,5 +250,8 @@ businesses and help their communities thrive.</a>!</p>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 </body>
 </html>

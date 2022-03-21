@@ -114,7 +114,7 @@ header('location: bag.php');
           <a class="nav-link" href="homepage.php">Shop</a>
         </li>
         <li class="nav-item">
-        <a class="nav-link" href="#">Bag <i class="fa fa-shopping-bag" aria-hidden="true" ></i></a>
+        <a class="nav-link" href="bag.php">Bag <i class="fa fa-shopping-bag" aria-hidden="true" ></i></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Profile</a>
