@@ -218,7 +218,7 @@ businesses and help their communities thrive.</a>!</p>
             </ul>
           </div>
           <div class="col-md-4 text-center">
-            <span class="small">Colorlib &copy; All Rights Reserved.</span>
+            <span class="small">Salefullntern &copy; All Rights Reserved.</span>
           </div>
           <div class="col-md-4 text-right">
             <ul class="list-unstyled social app mb-0 pb-0 nav-right text-end">

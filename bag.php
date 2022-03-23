@@ -145,7 +145,7 @@ if(!isset($_SESSION['username'])){
                                             <td><?php echo $row['bp_name']; ?></td>
                                             <td><?php echo $row['bp_description']; ?></td>
                                             <td><?php echo $row['bp_location']; ?></td>
-                                            <td><?php echo $row['bp_total12']; ?></td>
+                                            <td><?php echo $row['bp_total']; ?></td>
                                             <td></td>
                                         </tr>
 
